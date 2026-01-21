@@ -1,9 +1,9 @@
-const API_URL = 'http://localhost:5000/api/auth'
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
 
 const api = {
   login: async ({ email, password }) => {
     try {
-      const response = await fetch(`${API_URL}/login`, {
+      const response = await fetch(`${BASE_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -25,7 +25,7 @@ const api = {
 
   adminLogin: async ({ email, password }) => {
     try {
-      const response = await fetch(`${API_URL}/admin/login`, {
+      const response = await fetch(`${BASE_URL}/auth/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -47,7 +47,7 @@ const api = {
 
   register: async ({ name, email, password, role }) => {
     try {
-      const response = await fetch(`${API_URL}/register`, {
+      const response = await fetch(`${BASE_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password, role }),
@@ -77,7 +77,7 @@ const api = {
 
   getMasters: async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/users/masters')
+      const response = await fetch(`${BASE_URL}/users/masters`)
       if (!response.ok) throw new Error('Failed to fetch masters')
       return await response.json()
     } catch (error) {
@@ -88,7 +88,7 @@ const api = {
 
   getUser: async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${id}`)
+      const response = await fetch(`${BASE_URL}/users/${id}`)
       if (!response.ok) throw new Error('Failed to fetch user')
       return await response.json()
     } catch (error) {
@@ -104,7 +104,7 @@ const api = {
         throw new Error('No token found')
       }
 
-      const response = await fetch(`${API_URL}/me`, {
+      const response = await fetch(`${BASE_URL}/auth/me`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -134,7 +134,7 @@ const api = {
   syncGroups: async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch('http://localhost:5000/api/groups/sync', {
+      const response = await fetch(`${BASE_URL}/groups/sync`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -152,7 +152,7 @@ const api = {
   getGroups: async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch('http://localhost:5000/api/groups', {
+      const response = await fetch(`${BASE_URL}/groups`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -168,7 +168,7 @@ const api = {
   updateGroupDisplayName: async (id, displayName) => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`http://localhost:5000/api/groups/${id}/display-name`, {
+      const response = await fetch(`${BASE_URL}/groups/${id}/display-name`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -191,7 +191,7 @@ const api = {
         throw new Error('No authentication token found')
       }
       
-      const response = await fetch(`http://localhost:5000/api/groups/${id}/toggle-active`, {
+      const response = await fetch(`${BASE_URL}/groups/${id}/toggle-active`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -215,7 +215,7 @@ const api = {
   getActiveGroups: async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch('http://localhost:5000/api/mt5-accounts/active-groups', {
+      const response = await fetch(`${BASE_URL}/mt5-accounts/active-groups`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -231,7 +231,7 @@ const api = {
   getMyMT5Accounts: async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch('http://localhost:5000/api/mt5-accounts/my-accounts', {
+      const response = await fetch(`${BASE_URL}/mt5-accounts/my-accounts`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -251,7 +251,7 @@ const api = {
         throw new Error('No authentication token found')
       }
 
-      const response = await fetch('http://localhost:5000/api/mt5-accounts/create', {
+      const response = await fetch(`${BASE_URL}/mt5-accounts/create`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
