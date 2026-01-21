@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #059669 0%, #06b6d4 50%, #0891b2 100%);
+  --secondary-gradient: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --glass-bg: rgba(6, 182, 212, 0.1);
+  --glass-border: rgba(6, 182, 212, 0.2);
+  --glow-color: rgba(6, 182, 212, 0.5);
+  --text-gradient: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+  --backdrop-blur: blur(20px);
+}
+
+/* Enhanced Body Styles */
+body {
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Apply Ubuntu font to all inputs, buttons, and selects */
+input, button, select, textarea {
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Compact Typography — global smaller font sizes */
+/* Scope compact fonts to admin only */
+.admin-compact { font-size: 13px; }
+.admin-compact .text-xs { font-size: 11px !important; }
+.admin-compact .text-sm { font-size: 12px !important; }
+.admin-compact .text-base { font-size: 13px !important; }
+.admin-compact .text-lg { font-size: 14px !important; }
+.admin-compact .text-xl { font-size: 16px !important; }
+.admin-compact .text-2xl { font-size: 18px !important; }
+
+/* Master Dashboard Typography — Ubuntu font */
+.master-compact {
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+}
+.master-compact .text-xs { font-size: 11px !important; }
+.master-compact .text-sm { font-size: 12px !important; }
+.master-compact .text-base { font-size: 13px !important; }
+.master-compact .text-lg { font-size: 14px !important; }
+.master-compact .text-xl { font-size: 16px !important; }
+.master-compact .text-2xl { font-size: 18px !important; }
+
+/* Master Dashboard specific styles */
+.master-compact input,
+.master-compact select,
+.master-compact button {
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Violet gradient for master */
+.violet-gradient {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+}
+
+/* Master card hover effect */
+.master-card-hover {
+  transition: all 0.3s ease;
+}
+.master-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.3);
+}
+
+/* Dropdown animation */
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-dropdown {
+  animation: dropdown-in 0.15s ease-out;
+}
+
+/* Responsive Typography */
+.gradient-text {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+/* Glass Effects */
+.glass-strong {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(6, 182, 212, 0.1);
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Utility Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.8s ease-out;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.8s ease-out;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Focus States */
+*:focus {
+  outline: 2px solid rgba(6, 182, 212, 0.5);
+  outline-offset: 2px;
+}
+
+/* Selection Styles */
+::selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: white;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #10b981, #06b6d4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #059669, #0891b2);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
