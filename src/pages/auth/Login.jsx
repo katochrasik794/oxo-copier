@@ -42,7 +42,7 @@ const Login = () => {
                 <div className="my-auto mx-auto flex flex-col justify-center px-6 pt-8 md:justify-start lg:w-[28rem]">
                     <p className="text-center text-3xl font-bold md:leading-tight md:text-left md:text-5xl">
                         Welcome back <br />
-                        to <span className="text-violet-600">Solitaire</span>
+                        to <span className="text-violet-600">OXO Markets</span>
                     </p>
                     <p className="mt-6 text-center font-medium md:text-left">Sign in to your account below.</p>
 

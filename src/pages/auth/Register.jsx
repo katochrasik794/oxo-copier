@@ -124,7 +124,7 @@ const Register = () => {
         <div className="py-16 px-8 text-white xl:w-[40rem] mx-auto">
           <span className="rounded-full bg-white px-3 py-1 font-medium text-violet-600">Join Now</span>
           <p className="my-6 text-3xl font-semibold leading-10">
-            Access global markets with <span className="whitespace-nowrap py-2 text-violet-200">Solitaire</span>.
+            Access global markets with <span className="whitespace-nowrap py-2 text-violet-200">OXO Markets</span>.
           </p>
           <p className="mb-4 text-violet-100">
             Create an account to start following top traders, manage your portfolio, and track your performance in real-time.
